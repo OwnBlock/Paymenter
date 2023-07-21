@@ -23,7 +23,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/paymenter/paymenter
+          images: ghcr.io/ownblock/paymenter
           flavor: |
             latest=false
           tags: |
