@@ -19,17 +19,17 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v3
 
-      - name: Fetch metadata
-        id: metadata
-        uses: docker/metadata-action@v4
-        with:
-          images: ghcr.io/ownblock/paymenter
-          flavor: |
-            latest=false
-          tags: |
-            type=raw,value=latest,enable=${{ github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false }}
-            type=ref,event=tag
-            type=ref,event=branch
+      # - name: Fetch metadata
+      #  id: metadata
+      #  uses: docker/metadata-action@v4
+      #  with:
+      #    images: ghcr.io/ownblock/paymenter
+      #    flavor: |
+      #      latest=false
+      #    tags: |
+      #      type=raw,value=latest,enable=${{ github.event_name == 'release' && github.event.action == 'published' && github.event.release.prerelease == false }}
+      #      type=ref,event=tag
+      #      type=ref,event=branch
 
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v2
