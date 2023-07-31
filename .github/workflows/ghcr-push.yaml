@@ -8,8 +8,8 @@ on:
   schedule:
     - cron: '0 0 * * *'  # every day at midnight
 env:
-    IMAGE_NAME: ptr-test
-    IMAGE_TAGS: v1 ${{ github.sha }}
+    IMAGE_NAME: paymenter
+    IMAGE_TAGS: latest ${{ github.sha }}
     IMAGE_REGISTRY: ghcr.io/${{ github.repository_owner }}
     REGISTRY_USER: ${{ github.actor }}
     REGISTRY_PASSWORD: ${{ github.token }}
@@ -49,7 +49,7 @@ jobs:
 
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
-        uses: ./
+        uses: docker/build-push-action@v3
         id: push
         with:
           image: ${{ steps.build_image.outputs.image }}
